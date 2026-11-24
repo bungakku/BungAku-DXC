@@ -1,39 +1,39 @@
-#mec-docx-loading {
+#bungaku-dxc-loading {
     display: none;
 }
-.status-loading #mec-docx-loading {
+.status-loading #bungaku-dxc-loading {
     display: block;
 }
 
-.mec-docx-preview {
+.bungaku-dxc-preview {
     display: none;
 }
-.status-loaded .mec-docx-preview {
+.status-loaded .bungaku-dxc-preview {
     display: block;
 }
 
-#mec-docx-inserting {
+#bungaku-dxc-inserting {
     display: none;
 }
-.status-inserting #mec-docx-inserting {
+.status-inserting #bungaku-dxc-inserting {
     display: block;
 }
 
-.mec-docx-error {
+.bungaku-dxc-error {
     display: none;
 }
-.status-error .mec-docx-error {
+.status-error .bungaku-dxc-error {
     display: block;
 }
 
-#mec-docx-visual-preview {
+#bungaku-dxc-visual-preview {
     width: 90%;
     height: 350px;
     border: 1px solid #ddd;
     background: #fff;
 }
 
-#mec-docx-raw-preview {
+#bungaku-dxc-raw-preview {
     overflow: auto;
     white-space: pre-wrap;
     background: #f9f9f9;
@@ -42,7 +42,7 @@
     border: 1px solid #ddd;
 }
 
-.mec-docx-tabs .tabs-nav li {
+.bungaku-dxc-tabs .tabs-nav li {
     display: inline-block;
     margin: 0 1em 0 0;
     padding: 0.2em 1em;
@@ -52,9 +52,9 @@
     cursor: pointer;
     transition: background-color 0.2s;
 }
-.mec-docx-tabs .tabs-nav li:hover {
+.bungaku-dxc-tabs .tabs-nav li:hover {
     background-color: #555;
 }
-.mec-docx-tabs .tabs-nav li.selected {
+.bungaku-dxc-tabs .tabs-nav li.selected {
     background-color: #2C4766;
 }

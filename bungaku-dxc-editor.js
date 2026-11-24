@@ -2,15 +2,15 @@
 var mec = require("mec");
 var slug = require("./slug");
 
-var parentElement = document.getElementById("mec-docx-uploader");
+var parentElement = document.getElementById("bungaku-dxc-uploader");
 if (parentElement) {
-    setUpMecDocx();
+    setUpBungAkuDxc();
 }
 
-function setUpMecDocx() {
+function setUpBungAkuDxc() {
     var latestDocumentArrayBuffer = null;
-    var uploadElement = document.getElementById("mec-docx-upload");
-    var visualPreviewElement = document.getElementById("mec-docx-visual-preview");
+    var uploadElement = document.getElementById("bungaku-dxc-upload");
+    var visualPreviewElement = document.getElementById("bungaku-dxc-visual-preview");
 
     uploadElement.addEventListener('change', function(event) {
         parentElement.className = "status-loading";
@@ -22,8 +22,8 @@ function setUpMecDocx() {
         for (var key in options) {
             fullOptions[key] = options[key];
         }
-        if (typeof MEC_OPTIONS !== "undefined") {
-            var customOptions = typeof MEC_OPTIONS === "function" ? MEC_OPTIONS(mec) : MEC_OPTIONS;
+        if (typeof BUNGAKU_DXC_OPTIONS !== "undefined") {
+            var customOptions = typeof BUNGAKU_DXC_OPTIONS === "function" ? BUNGAKU_DXC_OPTIONS(mec) : BUNGAKU_DXC_OPTIONS;
             for (var key in customOptions) {
                 fullOptions[key] = customOptions[key];
             }
@@ -52,7 +52,7 @@ function setUpMecDocx() {
         reader.readAsArrayBuffer(file);
     }
 
-    document.getElementById("mec-docx-insert")
+    document.getElementById("bungaku-dxc-insert")
         .addEventListener("click", insertIntoEditor, false);
 
     function insertIntoEditor() {
@@ -128,11 +128,11 @@ function setUpMecDocx() {
         formData.append("name", filename);
         formData.append("action", "upload-attachment");
         formData.append("post_id", document.getElementById("post_ID").value);
-        var nonce = document.getElementById("mec-docx-upload-image-nonce").value;
+        var nonce = document.getElementById("bungaku-dxc-upload-image-nonce").value;
         formData.append("_wpnonce", nonce);
         var imageBlob = new Blob([imageArrayBuffer], {type: contentType});
         formData.append("async-upload", imageBlob, filename);
-        return fetch(document.getElementById("mec-docx-upload-image-href").value, {
+        return fetch(document.getElementById("bungaku-dxc-upload-image-href").value, {
             method: "POST",
             body: formData,
             dataType: "json"
@@ -165,7 +165,7 @@ function setUpMecDocx() {
 
     function setImageAltText(options) {
         return jQuery.ajax({
-            url: document.getElementById("mec-docx-admin-ajax-href").value,
+            url: document.getElementById("bungaku-dxc-admin-ajax-href").value,
             type: "POST",
             data: {
                 "action": "save-attachment",
@@ -202,7 +202,7 @@ function setUpMecDocx() {
             error = error.message;
         }
         parentElement.className = "status-error";
-        document.getElementById("mec-docx-error-message").innerHTML = escapeHtml(error);
+        document.getElementById("bungaku-dxc-error-message").innerHTML = escapeHtml(error);
     }
 
     function showResult(result) {
@@ -216,7 +216,7 @@ function setUpMecDocx() {
         setUpVisualPreviewStylesheets();
         visualPreviewDocument.body.innerHTML = value;
         var htmlWithoutImageData = value.replace(/(<img\s[^>]*)src="data:[^"]*"([^>]* \/>)/g, '$1src="path/to/image"$2');
-        document.getElementById("mec-docx-raw-preview").innerHTML = escapeHtml(htmlWithoutImageData);
+        document.getElementById("bungaku-dxc-raw-preview").innerHTML = escapeHtml(htmlWithoutImageData);
     }
 
     function showMessages(messages) {
@@ -229,10 +229,10 @@ function setUpMecDocx() {
                     return "<li>" + capitalise(message.type) + ": " + escapeHtml(message.message) + "</li>";
                 })
                 .join("");
-            document.getElementById("mec-docx-messages").innerHTML =
+            document.getElementById("bungaku-dxc-messages").innerHTML =
                 "<ul>" + messageElements + "</ul>";
         } else {
-            document.getElementById("mec-docx-messages").innerHTML =
+            document.getElementById("bungaku-dxc-messages").innerHTML =
                 "<p>No messages.</p>";
         }
     }

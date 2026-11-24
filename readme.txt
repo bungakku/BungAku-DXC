@@ -1,10 +1,10 @@
-=== MEC-DOCX-CONVERTER ===
+=== BungAku-DXC ===
 
 Contributors: Biswajit Thokchom
-Tags: docx, html, word, office, paste, converter, mec
+Tags: docx, html, word, office, paste, converter, bungaku
 Requires at least: 5.0
 Tested up to: 6.9.4
-Stable tag: 1.1.1
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Author URL:  https://github.com/bungakku
@@ -13,7 +13,7 @@ Convert .docx documents to clean, semantic HTML – paste from Word, Google Docs
 
 == Description ==
 
-MEC-DOCS CONVERTER is designed to convert .docx documents, such as those created by Microsoft Word, Google Docs and LibreOffice, and convert them to HTML. It aims to produce simple and clean HTML by using semantic information in the document, and ignoring other details. For instance, It converts any paragraph with the style `Heading1` to `h1` elements, rather than attempting to exactly copy the styling (font, text size, colour, etc.) of the heading. This allows you to paste from Word documents easily.
+BungAku-DXC is designed to convert .docx documents, such as those created by Microsoft Word, Google Docs and LibreOffice, and convert them to HTML. It aims to produce simple and clean HTML by using semantic information in the document, and ignoring other details. For instance, It converts any paragraph with the style `Heading1` to `h1` elements, rather than attempting to exactly copy the styling (font, text size, colour, etc.) of the heading. This allows you to paste from Word documents easily.
 
 **Perfect for:**  
 - Importing Word documents into the WordPress editor  
@@ -41,22 +41,22 @@ MEC-DOCS CONVERTER is designed to convert .docx documents, such as those created
 
 **Configuration:**
 
-Advanced users can define a global JavaScript function `MEC_OPTIONS` to pass custom options to the mec.js library. This function receives the `mec` object as an argument, enabling you to use its transforms and utilities.
+Advanced users can define a global JavaScript function `BUNGAKU_DXC_OPTIONS` to pass custom options to the mec.js library. This function receives the `mec` object as an argument, enabling you to use its transforms and utilities.
 
 **GitHub Repository:**
 
 The plugin source code is available on GitHub:  
-[https://github.com/bungakku/Mec-Docx-Converter](https://github.com/bungakku/Mec-Docx-Converter)  
+[https://github.com/bungakku/BungAku-DXC](https://github.com/bungakku/BungAku-DXC)  
 We welcome issues, pull requests, and contributions.
 
 == Installation ==
 
-1. Upload the `mec-docx-converter` folder to the `/wp-content/plugins/` directory, or install directly from the WordPress plugin repository.
+1. Upload the `bungaku-dxc` folder to the `/wp-content/plugins/` directory, or install directly from the WordPress plugin repository.
 2. Activate the plugin through the "Plugins" menu in WordPress.
-3. When editing any post or page, look for the "Mec-Docx-Converter" meta box (usually below the editor).
+3. When editing any post or page, look for the "BungAku-DXC" meta box (usually below the editor).
 4. Select a `.docx` file, preview the conversion (Visual and Raw HTML tabs), and click "Insert into editor".
 
-Tip: If you don't see the meta box, check **Screen Options** at the top of the edit screen and ensure "Mec-Docx-Converter" is checked.
+Tip: If you don't see the meta box, check **Screen Options** at the top of the edit screen and ensure "BungAku-DXC" is checked.
 
 == Frequently Asked Questions ==
 
@@ -74,7 +74,7 @@ They are converted to ordered lists (`<ol>`) with back‑links, placed after the
 
 = Can I map my own styles? =
 
-Absolutely – use embedded style maps (see above) or define a custom global `MEC_OPTIONS` to override the default mapping.
+Absolutely – use embedded style maps (see above) or define a custom global `BUNGAKU_DXC_OPTIONS` to override the default mapping.
 
 = Does it support tables with merged cells? =
 
@@ -86,10 +86,17 @@ The plugin uses the browser's File API, so it's limited by the user's browser an
 
 = Where can I report bugs or request features? =
 
-Please use the [GitHub issue tracker](https://github.com/bungakku/Mec-Docx-Converter/issues).
+Please use the [GitHub issue tracker](https://github.com/bungakku/BungAku-DXC/issues).
 
 == Changelog ==
 
+
+= v1.2.0 =
+Rename release.
+* Renamed from MEC Docx Converter to BungAku-DXC. The plugin folder and main file are now `bungaku-dxc` / `bungaku-dxc.php`, so WordPress treats it as a new plugin: deactivate and delete the old "MEC DOCX CONVERTER", then install this one fresh. Clean break: no migration code and no legacy aliases.
+* Renamed the global JavaScript options hook `MEC_OPTIONS` to `BUNGAKU_DXC_OPTIONS`. Update any custom snippet that defines it.
+* Renamed all internal prefixes, asset handles and file names to `bungaku_dxc_` / `bungaku-dxc-`. The GitHub update check now targets `bungakku/BungAku-DXC`.
+* No functional or output changes to the conversion engine.
 
 = v1.1.1 =
 Maintenance release.
